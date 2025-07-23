@@ -1,5 +1,5 @@
-import Hero from "@/components/hero.tsx";
-import Showcase from "@/components/showcase.tsx";
+import Hero from "@/components/hero";
+import Showcase from "@/components/showcase";
 export default function Home() {
   return (
 	  <>
