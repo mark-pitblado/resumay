@@ -63,7 +63,7 @@ export default function Hero() {
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pt-4 lg:pr-8">
             <div className="lg:max-w-lg">
-              <h2 className="text-base/7 font-semibold text-indigo-600">3 easy steps</h2>
+              <h2 className="text-base/7 font-semibold text-indigo-600">4 easy steps</h2>
               <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
                 Build a resume from a text file 
               </p>
