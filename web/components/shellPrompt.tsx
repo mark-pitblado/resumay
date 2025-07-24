@@ -3,22 +3,21 @@
 import { useState } from "react";
 import ProgressBar from "@/components/progress";
 
-const handleCopy = async () => {
-  try {
-    await navigator.clipboard.writeText(exampleConfig);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  } catch (err) {
-    console.error("Failed to copy text: ", err);
-  }
-};
-
 export default function ShellPrompt({
   command = "resumay create resume --input resume.toml --template template.html",
 }: {
   command?: string;
 }) {
   const [copied, setCopied] = useState(false);
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(command);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+  };
   const steps = [
     {
       id: "01",
