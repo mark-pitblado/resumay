@@ -1,7 +1,24 @@
 import { Button } from "@/components/button";
 import { Badge } from "@/components/badge";
 
-const people = [
+import { colors } from "@/components/badge";
+
+type BadgeColor = keyof typeof colors;
+
+interface TemplateBadge {
+  text: string;
+  color: BadgeColor;
+}
+
+interface Template {
+  name: string;
+  role: string;
+  imageUrl: string;
+  bio: string;
+  badges: PersonBadge[];
+}
+
+const template: Template[] = [
   {
     name: "Minimalist",
     role: "",
@@ -54,24 +71,24 @@ export default function Showcase() {
           <Button className="mt-3">See all templates</Button>
         </div>
         <ul role="list" className="divide-y divide-gray-200 xl:col-span-3">
-          {people.map((person) => (
+          {template.map((template) => (
             <li
-              key={person.name}
+              key={template.name}
               className="flex flex-col gap-10 py-12 first:pt-0 last:pb-0 sm:flex-row"
             >
               <img
                 alt=""
-                src={person.imageUrl}
+                src={template.imageUrl}
                 className="aspect-4/5 w-52 flex-none rounded-2xl object-cover outline-1 -outline-offset-1 outline-black/5"
               />
               <div className="max-w-xl flex-auto">
                 <h3 className="text-lg/8 font-semibold tracking-tight text-gray-900">
-                  {person.name}
+                  {template.name}
                 </h3>
-                <p className="text-base/7 text-gray-600">{person.role}</p>
-                <p className="mt-6 text-base/7 text-gray-600">{person.bio}</p>
+                <p className="text-base/7 text-gray-600">{template.role}</p>
+                <p className="mt-6 text-base/7 text-gray-600">{template.bio}</p>
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {person.badges.map((badge, index) => (
+                  {template.badges.map((badge, index) => (
                     <Badge key={index} color={badge.color}>
                       {badge.text}
                     </Badge>
