@@ -148,15 +148,5 @@ def resume(
         raise typer.Exit(1)
 
 
-def letter(
-    input: str = typer.Option(
-        "letter.md", help="Specify the markdown input file to use."
-    ),
-):
-    """
-    Generate a cover letter from a markdown file. Use yaml frontmatter for meta information.
-    """
-
-
 if __name__ == "__main__":
     app()
