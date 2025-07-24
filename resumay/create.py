@@ -21,6 +21,9 @@ def resume(
     engine: str = typer.Option(
         "weasyprint", help="PDF engine to use (weasyprint, wkhtmltopdf)"
     ),
+    keep_html: bool = typer.Option(
+        False, "--keep-html", help="Keep the generated HTML file for debugging."
+    ),
 ):
     """
     Create a PDF from a resume configuration file and an HTML template.
@@ -124,6 +127,22 @@ def resume(
                         f"❌ [red]Unknown engine: [bold]{engine}[/bold][/red]"
                     )
                     raise typer.Exit(1)
+
+            # Handle HTML file cleanup based on keep_html option
+            if keep_html:
+                console.print(
+                    f"📋 [cyan]Keeping HTML file for debugging: [bold]{output_html}[/bold][/cyan]"
+                )
+            else:
+                try:
+                    Path(output_html).unlink()
+                    console.print(
+                        f"🧹 [yellow]Cleaned up temporary HTML file: [bold]{output_html}[/bold][/yellow]"
+                    )
+                except Exception as e:
+                    console.print(
+                        f"⚠️ [yellow]Warning: Could not remove HTML file {output_html}: {str(e)}[/yellow]"
+                    )
 
         except sh.CommandNotFound:
             if engine == "wkhtmltopdf":
