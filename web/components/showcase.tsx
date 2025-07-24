@@ -15,7 +15,7 @@ interface Template {
   role: string;
   imageUrl: string;
   bio: string;
-  badges: PersonBadge[];
+  badges: TemplateBadge[];
 }
 
 const template: Template[] = [
