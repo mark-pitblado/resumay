@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Showcase />
       <ConfigSpotlight />
+      <Showcase />
     </>
   );
 }
