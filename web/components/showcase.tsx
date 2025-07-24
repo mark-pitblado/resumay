@@ -1,18 +1,13 @@
 import { Button } from "@/components/button";
-import { Badge } from "@/components/badge";
-
-import { colors } from "@/components/badge";
-
-type BadgeColor = keyof typeof colors;
+import Badge from "@/components/badge";
 
 interface TemplateBadge {
   text: string;
-  color: BadgeColor;
+  color: string;
 }
 
 interface Template {
   name: string;
-  role: string;
   imageUrl: string;
   bio: string;
   badges: TemplateBadge[];
@@ -21,36 +16,33 @@ interface Template {
 const template: Template[] = [
   {
     name: "Minimalist",
-    role: "",
     imageUrl: "https://placehold.co/300x500",
     bio: "Simple and clean. This template gives your content lots of whitespace and room to breathe.",
     badges: [
-      { text: "Contact Info", color: "blue" },
-      { text: "Education", color: "green" },
-      { text: "Experience", color: "purple" },
+      { text: "Contact Info", color: "fill-blue-400" },
+      { text: "Education", color: "fill-green-400" },
+      { text: "Experience", color: "fill-purple-400" },
     ],
   },
   {
     name: "Compact tech",
-    role: "Co-Founder / CTO",
     imageUrl: "https://placehold.co/300x500",
     bio: "Emphasizes the technologies that you have worked with, and the cloud platforms that you are familiar with.",
     badges: [
-      { text: "Contact Info", color: "blue" },
-      { text: "Education", color: "green" },
-      { text: "Experience", color: "purple" },
-      { text: "Technologies", color: "red" },
+      { text: "Contact Info", color: "fill-blue-400" },
+      { text: "Education", color: "fill-green-400" },
+      { text: "Experience", color: "fill-purple-400" },
+      { text: "Technologies", color: "fill-red-400" },
     ],
   },
   {
     name: "Entrepreneur",
-    role: "Business Relations",
     imageUrl: "https://placehold.co/300x500",
     bio: "A large focus on projects.",
     badges: [
-      { text: "Contact Info", color: "blue" },
-      { text: "Projects", color: "pink" },
-      { text: "Testimonials", color: "cyan" },
+      { text: "Contact Info", color: "fill-blue-400" },
+      { text: "Projects", color: "fill-pink-400" },
+      { text: "Testimonials", color: "fill-cyan-400" },
     ],
   },
 ];
@@ -61,7 +53,7 @@ export default function Showcase() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-20 px-6 lg:px-8 xl:grid-cols-5">
         <div className="max-w-2xl xl:col-span-2">
           <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-            Plenty of templates to choose from
+            Choose a template
           </h2>
           <p className="mt-6 text-lg/8 text-gray-600">
             With resumay, swapping out the look of your resume is as simple as
@@ -85,13 +77,10 @@ export default function Showcase() {
                 <h3 className="text-lg/8 font-semibold tracking-tight text-gray-900">
                   {template.name}
                 </h3>
-                <p className="text-base/7 text-gray-600">{template.role}</p>
                 <p className="mt-6 text-base/7 text-gray-600">{template.bio}</p>
                 <div className="mt-6 flex flex-wrap gap-2">
                   {template.badges.map((badge, index) => (
-                    <Badge key={index} color={badge.color}>
-                      {badge.text}
-                    </Badge>
+                    <Badge key={index} text={badge.text} color={badge.color} />
                   ))}
                 </div>
               </div>

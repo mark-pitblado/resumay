@@ -13,6 +13,7 @@ location = "San Francisco, CA"
 summary = """
 Experienced software engineer with 5+ years of experience
 in full-stack development and cloud technologies.
+"""
 
 [[experience]]
 company = "Tech Corp"
@@ -21,6 +22,7 @@ duration = "2021 - Present"
 description = """
 Led development of microservices architecture
 serving 1M+ users daily.
+"""
 
 [[skills]]
 category = "Programming Languages"
@@ -51,12 +53,12 @@ year = 2019`;
     <div className="overflow-hidden bg-zinc-100 py-10 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <p className="max-w-2xl text-5xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-6xl sm:text-balance">
-          One easy to use text file
+          Create your resume config
         </p>
         <p className="text-xl mt-6 text-gray-700">
-          We call this the resume config file, and it is the heart of everything
-          you can do with resumay. Write it up once, edit it easily, and leave
-          the design to the templates.
+          A simple text file is at the heart of everything you can do with
+          resumay. Write it up once, edit it easily, and leave the design to the
+          templates.
         </p>
         <div className="relative mt-9">
           <div className="absolute -inset-2 rounded-[calc(var(--radius-xl)+calc(var(--spacing)*2))] shadow-xs ring-1 ring-black/5" />
