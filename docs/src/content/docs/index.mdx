@@ -1,0 +1,66 @@
+---
+title: Getting started
+description: Learn about the exact specifications required for the config file and the how to design your own template.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { FileTree } from '@astrojs/starlight/components';
+import { Steps } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
+
+We recommend setting up a dedicated directory to store all your resume files. You only need *two* files to get started, `resume.toml` and `teamplate.html`.
+
+<FileTree>
+- resume_directory/
+	- resume.toml
+	- template.html
+</FileTree>
+
+
+## Steps
+
+<Steps>
+
+1. Install resumay. Requires python and pip.
+
+
+	<Tabs syncKey="tool">
+	  <TabItem label="pip">
+	```bash
+	pip install resumay
+	```
+	  </TabItem>
+	  <TabItem label="uv">
+	```bash
+	uv tool install resumay
+	```
+	  </TabItem>
+	</Tabs>
+
+2. Create a `resume.toml` file
+
+	Resumay uses a [toml](https://toml.io/en/) configuration file to store all the information that will populate your resume. Either copy the [demo config](#) to get started, or head over the [resume config section](#) for a complete overview of all the elements that the config file supports.
+
+3. Pick a template to use as your `template.html` file
+	
+	You can either select a template from the [template gallery](#) or create your own. All templates are html files with css styling included. If you want to create your own, head over to the [template section](#).
+
+4. Run the command to produce your PDF resume
+
+	<Aside type="note" title="File naming">
+	If you have named your files something other than `resume.toml` and `template.html`, use the `--input` and `--template` flags to tell resumay what your files are named.
+	</Aside>
+	```bash
+	resumay create resume
+	```
+	After running this command, your directory should look like this
+
+	<FileTree>
+	- resume_directory/
+		- resume.toml
+		- template.html
+		- resume.pdf
+	</FileTree>
+
+</Steps>
+
