@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+
 import ProgressBar from "@/components/progress";
 
 const handleCopy = async () => {
@@ -13,8 +14,8 @@ const handleCopy = async () => {
   }
 };
 
-export default function ShellPrompt({
-  command = "resumay create resume --input resume.toml --template template.html",
+export default function Installation({
+  command = "pip install resumay",
 }: {
   command?: string;
 }) {
@@ -24,27 +25,28 @@ export default function ShellPrompt({
       id: "01",
       name: "Download resumay",
       href: "#",
-      status: "complete",
+      status: "current",
     },
     {
       id: "02",
       name: "Create your resume config",
       href: "#",
-      status: "complete",
+      status: "upcoming",
     },
-    { id: "03", name: "Pick your template", href: "#", status: "complete" },
-    { id: "04", name: "Create the PDF resume", href: "#", status: "current" },
+    { id: "03", name: "Pick your template", href: "#", status: "upcoming" },
+    { id: "04", name: "Create the PDF resume", href: "#", status: "upcoming" },
   ];
+
   return (
     <>
-      <div className="overflow-hidden bg-zinc-100 py-10 sm:py-32">
+      <div className="overflow-hidden bg-white py-10 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <p className="max-w-2xl text-5xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-6xl sm:text-balance">
-            Step 4
+            Step 1
           </p>
           <p className="text-xl mt-6 text-gray-700">
-            In a single command, take your config file and combine it with any
-            template downloaded from this site. Or, create your own!
+            Resumay operates entirely on your device, and offline. All that is
+            required is to install the command from pypi.
           </p>
           <ProgressBar steps={steps} />
           <div className="relative mt-9">

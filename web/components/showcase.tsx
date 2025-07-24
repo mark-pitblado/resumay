@@ -1,5 +1,6 @@
 import { Button } from "@/components/button";
 import Badge from "@/components/badge";
+import ProgressBar from "@/components/progress";
 
 interface TemplateBadge {
   text: string;
@@ -36,9 +37,19 @@ const template: Template[] = [
     ],
   },
   {
-    name: "Entrepreneur",
+    name: "Entrepreneur Royal Blue",
     imageUrl: "https://placehold.co/300x500",
     bio: "A large focus on projects.",
+    badges: [
+      { text: "Contact Info", color: "fill-blue-400" },
+      { text: "Projects", color: "fill-pink-400" },
+      { text: "Testimonials", color: "fill-cyan-400" },
+    ],
+  },
+  {
+    name: "Academic",
+    imageUrl: "https://placehold.co/300x500",
+    bio: "A resume that focuses on academic experience and publications.",
     badges: [
       { text: "Contact Info", color: "fill-blue-400" },
       { text: "Projects", color: "fill-pink-400" },
@@ -48,26 +59,42 @@ const template: Template[] = [
 ];
 
 export default function Showcase() {
+  const steps = [
+    {
+      id: "01",
+      name: "Download resumay",
+      href: "#",
+      status: "complete",
+    },
+    {
+      id: "02",
+      name: "Create your resume config",
+      href: "#",
+      status: "complete",
+    },
+    { id: "03", name: "Pick a template", href: "#", status: "current" },
+    { id: "04", name: "Create the PDF resume", href: "#", status: "upcoming" },
+  ];
   return (
     <div className="bg-white py-24 md:py-32">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-20 px-6 lg:px-8 xl:grid-cols-5">
-        <div className="max-w-2xl xl:col-span-2">
-          <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-            Choose a template
-          </h2>
-          <p className="mt-6 text-lg/8 text-gray-600">
-            With resumay, swapping out the look of your resume is as simple as
-            copying and pasting. Each template supports different resume config
-            elements.
+      <div className="mx-auto grid max-w-7xl">
+        <div className="">
+          <p className="text-5xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-6xl sm:text-balance">
+            Step 3
           </p>
-          <Button className="mt-3">See all templates</Button>
+          <p className="text-xl mt-6 text-gray-700">
+            Using a template is as simple as downloading an html file. All of
+            the templates will work with your resume config. You can browse the
+            full collection of templates here.
+          </p>
+          <ProgressBar steps={steps} />
         </div>
-        <ul role="list" className="divide-y divide-gray-200 xl:col-span-3">
+        <ul
+          role="list"
+          className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none"
+        >
           {template.map((template) => (
-            <li
-              key={template.name}
-              className="flex flex-col gap-10 py-12 first:pt-0 last:pb-0 sm:flex-row"
-            >
+            <li key={template.name} className="flex flex-col gap-6 xl:flex-row">
               <img
                 alt=""
                 src={template.imageUrl}
