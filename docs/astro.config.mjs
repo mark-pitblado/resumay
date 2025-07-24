@@ -17,13 +17,18 @@ export default defineConfig({
       sidebar: [
         {
           label: "Resume config",
-          autogenerate: { directory: "resume-specification" },
+          autogenerate: { directory: "resume-config" },
         },
         {
           label: "Templates",
           autogenerate: { directory: "templates" },
         },
+        {
+          label: "Command line tool",
+          autogenerate: { directory: "command-line-tool" },
+        },
       ],
+      tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 4 },
     }),
   ],
 });
