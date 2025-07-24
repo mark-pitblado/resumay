@@ -10,16 +10,26 @@ export default function configHighlight() {
       id: "01",
       name: "Download resumay",
       href: "#",
-      status: "complete",
+      status: "complete" as const,
     },
     {
       id: "02",
       name: "Create your resume config",
       href: "#",
-      status: "current",
+      status: "current" as const,
     },
-    { id: "03", name: "Pick your template", href: "#", status: "upcoming" },
-    { id: "04", name: "Create the PDF resume", href: "#", status: "upcoming" },
+    {
+      id: "03",
+      name: "Pick your template",
+      href: "#",
+      status: "upcoming" as const,
+    },
+    {
+      id: "04",
+      name: "Create the PDF resume",
+      href: "#",
+      status: "upcoming" as const,
+    },
   ];
 
   const exampleConfig = `name = "John Doe"

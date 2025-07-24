@@ -24,16 +24,26 @@ export default function ShellPrompt({
       id: "01",
       name: "Download resumay",
       href: "#",
-      status: "complete",
+      status: "complete" as const,
     },
     {
       id: "02",
       name: "Create your resume config",
       href: "#",
-      status: "complete",
+      status: "complete" as const,
     },
-    { id: "03", name: "Pick your template", href: "#", status: "complete" },
-    { id: "04", name: "Create the PDF resume", href: "#", status: "current" },
+    {
+      id: "03",
+      name: "Pick your template",
+      href: "#",
+      status: "complete" as const,
+    },
+    {
+      id: "04",
+      name: "Create the PDF resume",
+      href: "#",
+      status: "current" as const,
+    },
   ];
   return (
     <>

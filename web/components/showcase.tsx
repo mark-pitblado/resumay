@@ -64,16 +64,26 @@ export default function Showcase() {
       id: "01",
       name: "Download resumay",
       href: "#",
-      status: "complete",
+      status: "complete" as const,
     },
     {
       id: "02",
       name: "Create your resume config",
       href: "#",
-      status: "complete",
+      status: "complete" as const,
     },
-    { id: "03", name: "Pick a template", href: "#", status: "current" },
-    { id: "04", name: "Create the PDF resume", href: "#", status: "upcoming" },
+    {
+      id: "03",
+      name: "Pick a template",
+      href: "#",
+      status: "current" as const,
+    },
+    {
+      id: "04",
+      name: "Create the PDF resume",
+      href: "#",
+      status: "upcoming" as const,
+    },
   ];
   return (
     <div className="bg-white py-24 md:py-32">

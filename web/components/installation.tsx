@@ -25,16 +25,26 @@ export default function Installation({
       id: "01",
       name: "Download resumay",
       href: "#",
-      status: "current",
+      status: "current" as const,
     },
     {
       id: "02",
       name: "Create your resume config",
       href: "#",
-      status: "upcoming",
+      status: "upcoming" as const,
     },
-    { id: "03", name: "Pick your template", href: "#", status: "upcoming" },
-    { id: "04", name: "Create the PDF resume", href: "#", status: "upcoming" },
+    {
+      id: "03",
+      name: "Pick your template",
+      href: "#",
+      status: "upcoming" as const,
+    },
+    {
+      id: "04",
+      name: "Create the PDF resume",
+      href: "#",
+      status: "upcoming" as const,
+    },
   ];
 
   return (
