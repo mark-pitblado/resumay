@@ -100,8 +100,8 @@ export default function Hero() {
 
           <img
             alt="Product screenshot"
-            src="https://placehold.co/600x400"
-            className="w-3xl max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:-ml-0"
+            src="https://placehold.co/850x1100"
+            className="w-50 max-w-140 rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:-ml-0"
           />
         </div>
       </div>
