@@ -32,37 +32,41 @@ export default function configHighlight() {
     },
   ];
 
-  const exampleConfig = `name = "John Doe"
-email = "john.doe@email.com"
-phone = "+1 (555) 123-4567"
-location = "San Francisco, CA"
-
+  const exampleConfig = `
+name = "John Doe"
+email = "example@example.com"
+phone = "123-456-7891"
+location = "New York, NY"
 summary = """
-Experienced software engineer with 5+ years of experience
-in full-stack development and cloud technologies.
+A hard working individual with a lot of experience doing many things.
+I am looking for a job in any field in which I have skills.
 """
-
-[[experience]]
-company = "Tech Corp"
-position = "Senior Software Engineer"
-duration = "2021 - Present"
-description = """
-Led development of microservices architecture
-serving 1M+ users daily.
-"""
-
-[[skills]]
-category = "Programming Languages"
-items = ["JavaScript", "Python", "Go", "TypeScript"]
-
-[[skills]]
-category = "Frameworks"
-items = ["React", "Node.js", "Django", "Express"]
+github_username= "example"
+linkedin_username = "john-doe"
+website = "https://example.com"
 
 [[education]]
-degree = "Bachelor of Science in Computer Science"
-institution = "University of California"
-year = 2019`;
+institution = "University of Toronto"
+location = "Toronto, ON"
+program = "Bachelor of Science - Biochemistry"
+timespan = "Sept 2007 - Apr 2011"
+gpa = "4.0"
+description = """
+Studied the properties of matter and learned how to do experiments in a lab.
+"""
+points = ["Conducted experiments", "Learned about how human cells work"]
+
+[[experience]]
+institution = "Blue Jays Baseball"
+location = "Toronto, ON"
+position = "General Manager"
+timespan = "Sept 2007 - Apr 2017"
+description = """
+Managed the Blue Jays baseball program.
+My leadership resulted in a consistent 0.500 record across 4 seasons.
+"""
+points = ["Managed players", "Won games"]
+`;
 
   const lines = exampleConfig.split("\n");
 
