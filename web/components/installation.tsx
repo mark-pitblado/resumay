@@ -4,21 +4,20 @@ import { useState } from "react";
 
 import ProgressBar from "@/components/progress";
 
-const handleCopy = async () => {
-  try {
-    await navigator.clipboard.writeText(exampleConfig);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  } catch (err) {
-    console.error("Failed to copy text: ", err);
-  }
-};
-
 export default function Installation({
   command = "pip install resumay",
 }: {
   command?: string;
 }) {
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(command);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+  };
   const [copied, setCopied] = useState(false);
   const steps = [
     {
