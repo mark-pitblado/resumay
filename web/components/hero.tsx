@@ -10,6 +10,8 @@ import {
   CheckIcon,
 } from "@heroicons/react/24/solid";
 
+import Image from "next/image";
+
 import { useState } from "react";
 
 function CopyableCode({ text }: { text: string }) {
@@ -98,11 +100,17 @@ export default function Hero() {
             </div>
           </div>
 
-          <img
-            alt="Product screenshot"
-            src="https://placehold.co/850x1100"
-            className="w-50 max-w-140 rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:-ml-0"
-          />
+          <div className="relative mt-9">
+            <div className="absolute -inset-2 rounded-[calc(var(--radius-xl)+calc(var(--spacing)*2))] shadow-xs ring-1 ring-black/5" />
+            <div className="relative w-full bg-white rounded-xl shadow-2xl ring-1 ring-black/10 overflow-hidden">
+              <Image
+                alt="Product screenshot"
+                src="https://resumay.b-cdn.net/minimalist-template.png"
+                width={800}
+                height={800}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
