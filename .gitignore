@@ -1,4 +1,4 @@
 .venv
 resume*
-template*
+template.html
 __pycache__
