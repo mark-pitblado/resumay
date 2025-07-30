@@ -5,6 +5,7 @@ import React from "react";
 import { MinimalistTemplateSample } from "@/templates/minimalist";
 import { CompactTechTemplateSample } from "@/templates/compact-tech";
 
+
 interface TemplateBadge {
   text: string;
   color: string;
@@ -66,10 +67,18 @@ const templates: Template[] = [
 
 export default function TemplateGrid() {
   const [hoveredTemplate, setHoveredTemplate] = useState<string | null>(null);
-
+  const [previewTemplate, setPreviewTemplate] = useState<Template | null>(null);
+  
   const handleDownload = (template: Template) => {
     // TODO: Implement download functionality
     console.log("Downloading template:", template.name);
+  };
+
+  const openPreview = (template: Template) => {
+    setPreviewTemplate(template);
+  };
+  const closePreview = () => {
+    setPreviewTemplate(null);
   };
 
   return (
@@ -82,12 +91,11 @@ export default function TemplateGrid() {
           <li key={template.name} className="flex flex-col gap-6 xl:flex-row">
             <div
               className="relative"
-              onMouseEnter={() => setHoveredTemplate(template.name)}
-              onMouseLeave={() => setHoveredTemplate(null)}
+              
             >
               {/* Template thumbnail */}
               {template.component ? (
-                <div className="w-60 h-80 overflow-hidden rounded-lg border bg-white">
+                <div className="w-70 h-90 overflow-hidden rounded-lg border bg-white">
                   <div className="scale-[0.5] origin-top-left w-[200%] h-[200%]">
                     <template.component />
                   </div>
@@ -96,27 +104,10 @@ export default function TemplateGrid() {
                 <img
                   alt={`${template.name} template preview`}
                   src={template.imageUrl}
-                  className="aspect-4/5 w-60 object-cover rounded-lg border"
+                  className="aspect-4/5 w-90 object-cover rounded-lg border"
                 />
               )}
 
-              {/* Hover preview */}
-              {hoveredTemplate === template.name && (
-                <div className="absolute -top-4 -left-4 z-10 bg-white rounded-lg shadow-2xl border border-gray-200 p-4 max-w-md">
-                  <div className="text-xs text-gray-500 mb-2">Preview</div>
-                  <div className="scale-100 origin-top-left overflow-auto h-96">
-                    {template.component ? (
-                      <template.component />
-                    ) : (
-                      <img
-                        alt={`${template.name} template preview`}
-                        src={template.imageUrl}
-                        className="w-full h-full object-cover"
-                      />
-                    )}
-                  </div>
-                </div>
-              )}
             </div>
 
             <div className="max-w-xl flex-auto">
@@ -131,7 +122,13 @@ export default function TemplateGrid() {
                 ))}
               </div>
               
-              <div className="mt-6">
+              <div className="mt-6 flex gap-3">
+                <button 
+                    onClick={() => openPreview(template)}
+                    className="rounded-md bg-gray-100 px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
+                >
+                    Preview Template
+                </button>
                 <button
                   onClick={() => handleDownload(template)}
                   className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -143,6 +140,44 @@ export default function TemplateGrid() {
           </li>
         ))}
       </ul>
+      {/* Preview Modal */}
+      {previewTemplate && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/50"
+          onClick={closePreview}
+        >
+          <div 
+            className="relative bg-white rounded-lg shadow-2xl max-w-4xl max-h-[90vh] overflow-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center">
+              <h3 className="text-lg font-semibold text-gray-900">
+                {previewTemplate.name} Template Preview
+              </h3>
+              <button
+                onClick={closePreview}
+                className="text-gray-400 hover:text-gray-600 text-2xl"
+              >
+                ×
+              </button>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-6">
+              {previewTemplate.component ? (
+                <previewTemplate.component />
+              ) : (
+                <img
+                  alt={`${previewTemplate.name} template preview`}
+                  src={previewTemplate.imageUrl}
+                  className="w-full h-auto"
+                />
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
