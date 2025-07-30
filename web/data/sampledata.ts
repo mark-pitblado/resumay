@@ -27,5 +27,31 @@ export const sampleResumeData = {
         "Implemented automated testing and CI/CD pipelines"
       ]
     }
+  ],
+  projects: [
+    {
+      title: "Open Source Contribution",
+      description: "Contributed to various open source projects on GitHub, focusing on improving documentation and fixing bugs."
+    },
+    {
+      title: "Personal Portfolio Website",
+      description: "Developed a personal portfolio website to showcase my projects and skills using Next.js and Tailwind CSS."
+    }
+  ],
+  testimonials: [
+    {
+      quote: "John is a fantastic developer who consistently delivers high-quality work.",
+      author: "Jane Smith, Tech Lead at Example Corp"
+    }
+  ],
+  technologies: [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Git",
+    "Docker"
   ]
 };

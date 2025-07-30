@@ -1,4 +1,13 @@
 export interface ResumeData {
+  testimonials: Array<{
+    quote: string;
+    author: string;
+  }>;
+  projects: Array<{
+    title: string;
+    description: string;
+  }>;
+  technologies: string[];
   contactInfo: {
     name: string;
     email: string;
@@ -23,5 +32,15 @@ export interface ResumeData {
 }
 
 export interface MinimalistTemplateProps {
+  data: ResumeData;
+}
+
+export interface EntrepreneurRoyalBlueTemplateProps {
+  data: ResumeData;
+}
+export interface CompactTechTemplateProps {
+  data: ResumeData;
+}
+export interface AcademicTemplateProps {
   data: ResumeData;
 }
