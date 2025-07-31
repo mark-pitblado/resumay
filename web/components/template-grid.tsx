@@ -4,6 +4,7 @@ import { useState } from "react";
 import React from "react";
 import { MinimalistTemplateSample } from "@/templates/minimalist";
 import { CompactTechTemplateSample } from "@/templates/compact-tech";
+import { EntrepreneurRoyalBlueTemplateSample } from "@/templates/entrepreneur-royal-blue";
 
 
 interface TemplateBadge {
@@ -52,6 +53,7 @@ const templates: Template[] = [
       { text: "Projects", color: "fill-pink-400" },
       { text: "Testimonials", color: "fill-cyan-400" },
     ],
+    component: EntrepreneurRoyalBlueTemplateSample,
   },
   {
     name: "Academic",
