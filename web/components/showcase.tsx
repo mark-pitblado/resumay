@@ -86,9 +86,9 @@ export default function Showcase() {
     },
   ];
   return (
-    <div className="bg-white py-24 md:py-32">
+    <div className="overflow-hidden bg-white py-10 sm:py-32">
       <div className="mx-auto grid max-w-7xl">
-        <div className="">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <p className="text-5xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-6xl sm:text-balance">
             Step 3
           </p>
