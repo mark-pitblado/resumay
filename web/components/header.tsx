@@ -5,7 +5,7 @@ import { Dialog, DialogPanel } from "@headlessui/react";
 import { IconBrandGithub } from "@tabler/icons-react";
 
 const navigation = [
-  { name: "Templates", href: "#" },
+  { name: "Templates", href: "/templates" },
   { name: "Documentation", href: "#" },
 ];
 
@@ -13,12 +13,12 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white">
+    <header className="bg-white sticky top-0 z-50 shadow">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
       >
-        <a href="#" className="-m-1.5 p-1.5 text-black text-lg font-bold">
+        <a href="/" className="-m-1.5 p-1.5 text-black text-lg font-bold">
           <span>Resumay</span>
         </a>
         <div className="flex lg:hidden">
