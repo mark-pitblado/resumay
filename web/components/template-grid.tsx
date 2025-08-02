@@ -6,7 +6,7 @@ import { MinimalistTemplateSample } from "@/templates/minimalist";
 import { CompactTechTemplateSample } from "@/templates/compact-tech";
 import { EntrepreneurRoyalBlueTemplateSample } from "@/templates/entrepreneur-royal-blue";
 import { AcademicTemplateSample } from "@/templates/academic";
-
+import { generateHTMLFile, downloadHTMLFile } from "@/utility/generatehtml";
 
 interface TemplateBadge {
   text: string;
@@ -70,12 +70,29 @@ const templates: Template[] = [
 ];
 
 export default function TemplateGrid() {
-  const [hoveredTemplate, setHoveredTemplate] = useState<string | null>(null);
   const [previewTemplate, setPreviewTemplate] = useState<Template | null>(null);
   
   const handleDownload = (template: Template) => {
-    // TODO: Implement download functionality
-    console.log("Downloading template:", template.name);
+    if (template.component) {
+        try{
+            
+            // Generate HTML content using the template component
+            const htmlContent = generateHTMLFile(template.component, template.name);
+            
+            // Create a file name based on the template name and download it
+            const fileName = template.name.toLowerCase().replace(/\s+/g, '-');
+            downloadHTMLFile(htmlContent, `${fileName}-resume`);
+
+            console.log("Downloaded template: ", template.name);
+        } catch (error) {
+            console.error("Error generating HTML file: ", error);
+            alert("Failed to generate HTML file. Please try again.");
+
+        }
+    } else{
+        console.warn("No component found for template: ", template.name);
+        alert("This template does not have a preview component available.");
+    }
   };
 
   const openPreview = (template: Template) => {
