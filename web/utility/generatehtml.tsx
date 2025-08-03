@@ -6,12 +6,12 @@ export const generateHTMLFile = (
   templateName: string,
   resumeData?: any
 ): string => {
+    try {
   // Render the React component to HTML string
   const componentHTML = renderToString(React.createElement(TemplateComponent, resumeData || {}));
   
   // Create a complete HTML document
-  const fullHTML = `
-<!DOCTYPE html>
+    const fullHTML = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,19 +19,37 @@ export const generateHTMLFile = (
     <title>${templateName} Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Additional styles if needed */
         @media print {
-            body { margin: 0; }
-            .no-print { display: none; }
+            body { 
+                margin: 0; 
+                padding: 20px; 
+                background: white !important;
+            }
+            .no-print { 
+                display: none !important; 
+            }
+        }
+        @page {
+            margin: 0.5in;
+            size: A4;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #333;
         }
     </style>
 </head>
-<body>
+<body class="bg-white">
     ${componentHTML}
 </body>
 </html>`;
-  
-  return fullHTML;
+
+    return fullHTML;
+  } catch (error) {
+    console.error('Error rendering component to HTML:', error);
+    throw new Error('Failed to generate HTML content');
+  }
 };
 
 export const downloadHTMLFile = (htmlContent: string, fileName: string): void => {
