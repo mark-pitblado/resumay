@@ -95,7 +95,7 @@ export default function Showcase() {
           <p className="text-xl mt-6 text-gray-700">
             Using a template is as simple as downloading an html file. All of
             the templates will work with your resume config. You can browse the
-            full collection of templates here.
+            full collection of templates <a href="/templates" className="text-blue-500 underline">here</a>.
           </p>
           <ProgressBar steps={steps} />
         </div>
