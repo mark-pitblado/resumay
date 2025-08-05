@@ -71,27 +71,25 @@ const templates: Template[] = [
 
 export default function TemplateGrid() {
   const [previewTemplate, setPreviewTemplate] = useState<Template | null>(null);
-  
+
   const handleDownload = (template: Template) => {
     if (template.component) {
-        try{
-            
-            // Generate HTML content using the template component
-            const htmlContent = generateHTMLFile(template.component, template.name);
-            
-            // Create a file name based on the template name and download it
-            const fileName = template.name.toLowerCase().replace(/\s+/g, '-');
-            downloadHTMLFile(htmlContent, `${fileName}-resume`);
+      try {
+        // Generate HTML content using the template component
+        const htmlContent = generateHTMLFile(template.component, template.name);
 
-            console.log("Downloaded template: ", template.name);
-        } catch (error) {
-            console.error("Error generating HTML file: ", error);
-            alert("Failed to generate HTML file. Please try again.");
+        // Create a file name based on the template name and download it
+        const fileName = template.name.toLowerCase().replace(/\s+/g, "-");
+        downloadHTMLFile(htmlContent, `${fileName}-resume`);
 
-        }
-    } else{
-        console.warn("No component found for template: ", template.name);
-        alert("This template does not have a preview component available.");
+        console.log("Downloaded template: ", template.name);
+      } catch (error) {
+        console.error("Error generating HTML file: ", error);
+        alert("Failed to generate HTML file. Please try again.");
+      }
+    } else {
+      console.warn("No component found for template: ", template.name);
+      alert("This template does not have a preview component available.");
     }
   };
 
@@ -110,10 +108,7 @@ export default function TemplateGrid() {
       >
         {templates.map((template) => (
           <li key={template.name} className="flex flex-col gap-6 xl:flex-row">
-            <div
-              className="relative"
-              
-            >
+            <div className="relative">
               {/* Template thumbnail */}
               {template.component ? (
                 <div className="w-70 h-90 overflow-hidden rounded-lg border bg-white">
@@ -128,7 +123,6 @@ export default function TemplateGrid() {
                   className="aspect-4/5 w-90 object-cover rounded-lg border"
                 />
               )}
-
             </div>
 
             <div className="max-w-xl flex-auto">
@@ -136,25 +130,25 @@ export default function TemplateGrid() {
                 {template.name}
               </h3>
               <p className="mt-6 text-base/7 text-gray-600">{template.bio}</p>
-              
+
               <div className="mt-6 flex flex-wrap gap-2">
                 {template.badges.map((badge, index) => (
                   <Badge key={index} text={badge.text} color={badge.color} />
                 ))}
               </div>
-              
+
               <div className="mt-6 flex gap-3">
-                <button 
-                    onClick={() => openPreview(template)}
-                    className="rounded-md bg-gray-100 px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
+                <button
+                  onClick={() => openPreview(template)}
+                  className="rounded-md cursor-pointer bg-gray-100 px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
                 >
-                    Preview Template
+                  Preview
                 </button>
                 <button
                   onClick={() => handleDownload(template)}
-                  className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="rounded-md cursor-pointer bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
-                  Download Template
+                  Download
                 </button>
               </div>
             </div>
@@ -163,11 +157,11 @@ export default function TemplateGrid() {
       </ul>
       {/* Preview Modal */}
       {previewTemplate && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/50"
           onClick={closePreview}
         >
-          <div 
+          <div
             className="relative bg-white rounded-lg shadow-2xl max-w-4xl max-h-[90vh] overflow-auto"
             onClick={(e) => e.stopPropagation()}
           >
@@ -202,3 +196,4 @@ export default function TemplateGrid() {
     </div>
   );
 }
+
